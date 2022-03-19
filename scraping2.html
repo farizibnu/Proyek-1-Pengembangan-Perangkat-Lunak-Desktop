@@ -1,0 +1,50 @@
+<section class="tm-section-pad-top" id="whatwedo">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <br><br><br><br>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <style>h1 {text-align: center;}
+      table {align: center;}
+      table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 3px solid #333333;
+          text-align: left;
+          padding: 8px;
+        }
+        tr:nth-child(odd) {
+          background-color: #f3f3f3;
+        }
+        tr:nth-child(even) {
+          background-color: #f3f3f3;
+        }
+        
+    </style>
+
+    <h1>BILLBOARD K-POP 100</h1>
+    <div id="scraping2_json"></div>
+        <script type="text/javascript">
+            $(function(){
+                //mengambil data dari file json
+                $.get('scraping2.json',function(obj){
+                    var str = "<table border=1>";
+                    str +="<tr><td>No (update)</td><td class='tables'>Rangking</td><td class='tables'>Title</td><td class='tables'>Waktu Publish</td><td class='tables'>Waktu Scrapping</td></tr>";
+                    $.each(obj,function(n,data){
+                        //str +="<tr><td>" + (n+1) + "</td>";
+                        str += "<td class='tables'>" + data.Rangking + "</td>";
+                        str += '<td><img src="' + data.Image + '"></td>';
+                        str += "<td class='tables'>" + data.Title + "</td>";
+                        str += "<td class='tables'>" + data.Artist + "</td>";
+                        str += "<td class='tables'>" + data.waktu_scraping + "</td></tr>";
+                    });
+                    str +="</table>";
+                    $('#scraping2_json').html(str);
+                });
+            });
+        </script>
+
+    </head>
+</html>
