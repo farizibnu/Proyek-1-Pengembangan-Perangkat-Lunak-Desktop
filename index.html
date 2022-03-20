@@ -360,9 +360,9 @@
 					//mengambil data dari file json
 					$.get('headline.json',function(obj){
 						var str = "<table border=1>";
-						str +="<tr><td>No (update)</td><td class='tables'>Rangking</td><td class='tables'>Title</td><td class='tables'>Waktu Publish</td><td class='tables'>Waktu Scrapping</td></tr>";
+						str +="<tr><td>No</td><td class='tables'>Judul</td><td class='tables'>Kategori</td><td class='tables'>Waktu Publish</td><td class='tables'>Waktu Scraping</td></tr>";
 						$.each(obj,function(n,data){
-							//str +="<tr><td>" + (n+1) + "</td>";
+							str +="<tr><td>" + (n+1) + "</td>";
 							str +="<td>" + data.judul + "</td>";
 							str +="<td class='tables'>" + data.kategori + "</td>";
 							str +="<td class='tables'>" + data.waktu_publish + "</td>";
@@ -411,14 +411,14 @@
 					//mengambil data dari file json
 					$.get('scraping2.json',function(obj){
 						var str = "<table border=1>";
-						str +="<tr><td>No (update)</td><td class='tables'>Rangking</td><td class='tables'>Title</td><td class='tables'>Waktu Publish</td><td class='tables'>Waktu Scrapping</td></tr>";
+						str +="<tr><td>No (update)</td><td class='tables'>Picture</td><td class='tables'>Title</td><td class='tables'>Artist</td><td class='tables'>Waktu Scraping</td></tr>";
 						$.each(obj,function(n,data){
 							//str +="<tr><td>" + (n+1) + "</td>";
 							str += "<td class='tables'>" + data.Rangking + "</td>";
 							str += '<td><img src="' + data.Image + '"></td>';
 							str += "<td class='tables'>" + data.Title + "</td>";
 							str += "<td class='tables'>" + data.Artist + "</td>";
-							str += "<td class='tables'>" + data.waktu_scraping + "</td></tr>";
+							str += "<td class='tables'>" + data.Scraping_Time + "</td></tr>";
 						});
 						str +="</table>";
 						$('#scraping2_json').html(str);
